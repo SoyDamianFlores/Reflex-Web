@@ -7,7 +7,7 @@ from link_bio.views.sponsors import sponsors
 import link_bio.styles.styles as styles
 from link_bio.styles.styles import Size as Size
 from link_bio.about import about
-
+from link_bio.api.api import hello
 
 
 
@@ -34,10 +34,6 @@ def index() -> rx.Component:
         footer()
     )
 
-
-
-
-
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
     style=styles.BASE_STYLE
@@ -54,3 +50,5 @@ app.add_page(
     about,
     route="/about",
 )
+
+app.api.add_api_route("/hello", hello)
